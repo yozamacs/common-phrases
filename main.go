@@ -24,8 +24,9 @@ func main() {
 		fileNames := os.Args[1:]
 		rawText = getRawText(fileNames)
 	}
-
-	results := findCommonPhrases(rawText)
+  
+  cleanText:=cleanText(rawText)
+	results := findCommonPhrases(cleanText)
 
 	for phrase, count := range results {
 		fmt.Printf("%v - %s", count, phrase)
