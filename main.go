@@ -24,11 +24,12 @@ func main() {
 		fileNames := os.Args[1:]
 		rawText = getRawText(fileNames)
 	}
-  
-  cleanText:=cleanText(rawText)
-	results := findCommonPhrases(cleanText)
 
-	for phrase, count := range results {
-		fmt.Printf("%v - %s", count, phrase)
+	cleanText := cleanText(rawText)
+	phraseList := findCommonPhrases(cleanText)
+
+	for _,phrase:=range phraseList {
+		fmt.Printf("%v - %s\n", phrase.count, phrase.phrase)
 	}
+
 }
